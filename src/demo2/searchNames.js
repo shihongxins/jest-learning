@@ -5,7 +5,7 @@ const searchNames = (keyword = "") => {
   if (!keyword) {
     return [];
   }
-  return service.getNames().filter((name) => String(name).includes(keyword)).slice(0, 3);
+  return service.getNames().filter((name) => String(name).toUpperCase().includes(keyword.toUpperCase())).slice(0, 3);
 }
 
 const functionNotUsedAndTested = (input) => {

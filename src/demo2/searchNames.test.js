@@ -53,9 +53,20 @@ test('should return empty result when keyword is undefined or null', () => {
   getNames.mockImplementation(() => ['John', 'Bob', 'Paul', 'George', 'Tom']);
   // when
   const resultForUndef = searchNames(keyword);
-  console.log(resultForUndef);
   const resultForNull = searchNames(keyword = null);
   // then
   expect(resultForUndef).toEqual([]);
   expect(resultForNull).toEqual([]);
+});
+
+// test 5
+test('should return result when keyword is not case sensitive', () => {
+  // given
+  let keyword = 'john';
+  // 单独实现
+  getNames.mockImplementation(() => ['John', 'Bob', 'Paul', 'George', 'Tom']);
+  // when
+  const result = searchNames(keyword);
+  // then
+  expect(result).toEqual(['John']);
 });
