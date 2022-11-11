@@ -44,3 +44,18 @@ test('should return less than 3 result when search keyword matched', () => {
   // then
   expect(result.length).toBeLessThan(3);
 });
+
+// test 4
+test('should return empty result when keyword is undefined or null', () => {
+  // given
+  let keyword;
+  // 单独实现
+  getNames.mockImplementation(() => ['John', 'Bob', 'Paul', 'George', 'Tom']);
+  // when
+  const resultForUndef = searchNames(keyword);
+  console.log(resultForUndef);
+  const resultForNull = searchNames(keyword = null);
+  // then
+  expect(resultForUndef).toEqual([]);
+  expect(resultForNull).toEqual([]);
+});
